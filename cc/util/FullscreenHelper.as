@@ -33,10 +33,10 @@ package cc.util {
             
             if (fullscreen) {
                 if (useHardwareScaling) {
-                    stage.fullScreenSourceRect = new Rectangle(0, 0, stage.stageWidth, stage.stageHeight); // use for hardware scaling only
+                    stage.fullScreenSourceRect = new Rectangle(0, 0, stage.stageWidth, stage.stageHeight);  // use for hardware scaling only
                 }
                 if (allowKeyboardInput) {
-                    stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE; // accepts keyboard input while in fullscreen
+                    stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;  // accepts keyboard input while in fullscreen
                 } else {
                     stage.displayState = StageDisplayState.FULL_SCREEN;
                 }

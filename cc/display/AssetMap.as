@@ -11,13 +11,13 @@ package cc.display {
     /**
      * <code>AssetMap</code> is used to cache visual assets as <code>BitmapData</code> in a central location to allow utilization of the GPU.
      * Vector assets cached with <code>AssetMap</code> are automatically converted to </code>BitmapData</code>.
-     * @author	Benjamin Colwell
+     * @author  Benjamin Colwell
      */
     public class AssetMap {
         
-        private var _assetCache:Dictionary;		// all types are Vector.<Vector.<BitmapData>>
-        private var _bounds:Dictionary;			// all types are Vector.<Rectangle>
-        private var _registrations:Dictionary;	// all types are Point
+        private var _assetCache:Dictionary;     // all types are Vector.<Vector.<BitmapData>>
+        private var _bounds:Dictionary;         // all types are Vector.<Rectangle>
+        private var _registrations:Dictionary;  // all types are Point
         
         public function AssetMap() {
             
@@ -29,10 +29,10 @@ package cc.display {
         
         /**
          * Rasterizes and caches the single <code>MovieClip</code> class defined by the supplied <code>Asset</code>.
-         * @param	asset	An <code>Asset</code> object containing the class reference to be instantiated and cached.
-         * @param	registration	Registration point of the final cached asset.
-         * @param	angles	Total number of angles to be cached. Expects a value between 1 and 360. A value of 4 caches angles 0, 90, 180, 270.
-         * @param	scale	Scale value to be applied during the rasterization process.
+         * @param  asset  An <code>Asset</code> object containing the class reference to be instantiated and cached.
+         * @param  registration  Registration point of the final cached asset.
+         * @param  angles  Total number of angles to be cached. Expects a value between 1 and 360. A value of 4 caches angles 0, 90, 180, 270.
+         * @param  scale  Scale value to be applied during the rasterization process.
          */
         public function cacheMovieClip(asset:Asset, registration:Point, angles:uint = 1, scale:Number = 1.0):void {
             var AssetClass:Class = asset.classRefs[0] as Class;
@@ -51,10 +51,10 @@ package cc.display {
         
         /**
          * Rasterizes and caches the single masked <code>MovieClip</code> class defined by the supplied <code>Asset</code>.
-         * @param	asset	An <code>Asset</code> object containing the class reference to be instantiated and cached.
-         * @param   bounds	The bounds of the mask.
-         * @param	registration	Registration point of the final cached asset.
-         * @param	scale	Scale value to be applied during the rasterization process.
+         * @param  asset  An <code>Asset</code> object containing the class reference to be instantiated and cached.
+         * @param  bounds  The bounds of the mask.
+         * @param  registration  Registration point of the final cached asset.
+         * @param  scale  Scale value to be applied during the rasterization process.
          */
         public function cacheMaskedMovieClip(asset:Asset, bounds:Rectangle, registration:Point, scale:Number = 1.0):void {
             var AssetClass:Class = asset.classRefs[0] as Class;
@@ -71,10 +71,10 @@ package cc.display {
         
         /**
          * Rasterizes and caches the single <code>Sprite</code> class defined by the supplied <code>Asset</code>.
-         * @param	asset	An <code>Asset</code> object containing the class reference to be instantiated and cached.
-         * @param	registration	Registration point of the final cached asset.
-         * @param	angles	Total number of angles to be cached. Expects a value between 1 and 360. A value of 4 caches angles 0, 90, 180, 270.
-         * @param	scale	Scale value to be applied during the rasterization process.
+         * @param  asset  An <code>Asset</code> object containing the class reference to be instantiated and cached.
+         * @param  registration  Registration point of the final cached asset.
+         * @param  angles  Total number of angles to be cached. Expects a value between 1 and 360. A value of 4 caches angles 0, 90, 180, 270.
+         * @param  scale  Scale value to be applied during the rasterization process.
          */
         public function cacheSprite(asset:Asset, registration:Point, angles:uint = 1, scale:Number = 1.0):void {
             var AssetClass:Class = asset.classRefs[0] as Class;
@@ -94,10 +94,10 @@ package cc.display {
         
         /**
          * Rasterizes and caches the single masked <code>Sprite</code> class defined by the supplied <code>Asset</code>.
-         * @param	asset	An <code>Asset</code> object containing the class reference to be instantiated and cached.
-         * @param   bounds	The bounds of the mask.
-         * @param	registration	Registration point of the final cached asset.
-         * @param	scale	Scale value to be applied during the rasterization process.
+         * @param  asset  An <code>Asset</code> object containing the class reference to be instantiated and cached.
+         * @param  bounds  The bounds of the mask.
+         * @param  registration  Registration point of the final cached asset.
+         * @param  scale  Scale value to be applied during the rasterization process.
          */
         public function cacheMaskedSprite(asset:Asset, bounds:Rectangle, registration:Point, scale:Number = 1.0):void {
             var AssetClass:Class = asset.classRefs[0] as Class;
@@ -115,9 +115,9 @@ package cc.display {
         
         /**
          * Rasterizes and caches the sequence of <code>Sprite</code> classes defined by the supplied <code>Asset</code>.
-         * @param	asset	An <code>Asset</code> object containing the class references to be instantiated and cached.
-         * @param	registration	Registration point of the final cached asset.
-         * @param	scale	Scale value to be applied during the rasterization process.
+         * @param  asset  An <code>Asset</code> object containing the class references to be instantiated and cached.
+         * @param  registration  Registration point of the final cached asset.
+         * @param  scale  Scale value to be applied during the rasterization process.
          */
         public function cacheSpriteSequence(asset:Asset, registration:Point, scale:Number = 1.0):void {
             var bounds:Vector.<Rectangle> = new Vector.<Rectangle>(asset.totalFrames);
@@ -140,8 +140,8 @@ package cc.display {
         
         /**
          * Caches the sequence of <code>BitmapData</code> classes defined by the supplied <code>Asset</code>.
-         * @param	asset	An <code>Asset</code> object containing the class references to be instantiated and cached.
-         * @param	registration	Registration point of the final cached asset.
+         * @param  asset  An <code>Asset</code> object containing the class references to be instantiated and cached.
+         * @param  registration  Registration point of the final cached asset.
          */
         public function cacheBitmapSequence(asset:Asset, registration:Point, scale:Number = 1.0, smoothing:Boolean = false):void {
             var bounds:Rectangle = new Rectangle();
@@ -180,11 +180,11 @@ package cc.display {
         
         /**
          * Creates a new <code>BitmapSequence</code> object using the cached <code>BitmapData</code>.
-         * @param	asset	The <code>Asset</code> object which was previously cached.
-         * @param	angleIndex	Index of the desired angle (zero-based).
-         * @param	framerate	Framerate for the returned <code>BitmapSequence</code>.
-         * @param	callback	Callback method to be passed to the <code>BitmapSequence</code> constructor.
-         * @return	A new <code>BitmapSequence</code> object which shares the cached <code>BitmapData</code>.
+         * @param  asset  The <code>Asset</code> object which was previously cached.
+         * @param  angleIndex  Index of the desired angle (zero-based).
+         * @param  framerate  Framerate for the returned <code>BitmapSequence</code>.
+         * @param  callback  Callback method to be passed to the <code>BitmapSequence</code> constructor.
+         * @return A new <code>BitmapSequence</code> object which shares the cached <code>BitmapData</code>.
          */
         public function createSequence(asset:Asset, angleIndex:uint = 0, framerate:int = 1, callback:Function = null):BitmapSequence {
             if (angleIndex >= _assetCache[asset].length) angleIndex = 0;
@@ -193,9 +193,9 @@ package cc.display {
         
         /**
          * Retrieves the cached <code>Vector</code> of <code>BitmapData</code> objects corresponding to the supplied <code>Asset</code>.
-         * @param	asset	The <code>Asset</code> object which was previously cached.
-         * @param	angleIndex	Index of the desired angle (zero-based).
-         * @return	The cached <code>Vector</code> of <code>BitmapData</code> objects.
+         * @param  asset  The <code>Asset</code> object which was previously cached.
+         * @param  angleIndex  Index of the desired angle (zero-based).
+         * @return The cached <code>Vector</code> of <code>BitmapData</code> objects.
          */
         public function getFrames(asset:Asset, angleIndex:uint = 0):Vector.<BitmapData> {
             if (angleIndex >= _assetCache[asset].length) angleIndex = 0;
@@ -204,10 +204,10 @@ package cc.display {
         
         /**
          * Retrieves a single cached <code>BitmapData</code> object.
-         * @param	asset	The <code>Asset</code> object which was previously cached.
-         * @param	angleIndex	Index of the desired angle (zero-based).
-         * @param	frameIndex	Index of the desired frame (zero-based).
-         * @return	The cached <code>BitmapData</code> object.
+         * @param  asset  The <code>Asset</code> object which was previously cached.
+         * @param  angleIndex  Index of the desired angle (zero-based).
+         * @param  frameIndex  Index of the desired frame (zero-based).
+         * @return The cached <code>BitmapData</code> object.
          */
         public function getBitmap(asset:Asset, angleIndex:uint = 0, frameIndex:uint = 0):BitmapData {
             if (angleIndex >= _assetCache[asset].length) angleIndex = 0;
@@ -217,9 +217,9 @@ package cc.display {
         
         /**
          * Retrieves a single cached <code>Rectangle</code> object representing the bounds of the specified frame.
-         * @param	asset	The <code>Asset</code> object which was previously cached.
-         * @param	frameIndex	Index of the desired frame (zero-based).
-         * @return	The cached <code>Rectangle</code> object representing the bounds of the specified frame.
+         * @param  asset  The <code>Asset</code> object which was previously cached.
+         * @param  frameIndex  Index of the desired frame (zero-based).
+         * @return The cached <code>Rectangle</code> object representing the bounds of the specified frame.
          */
         public function getRect(asset:Asset, frameIndex:uint = 0):Rectangle {
             if (frameIndex >= _bounds[asset].length) frameIndex = 0;
@@ -228,9 +228,9 @@ package cc.display {
         
         /**
          * Retrieves the cached <code>Vector</code> of <code>Rectangle</code> objects representing the bounds for each frame of the supplied <code>Asset</code>.
-         * @param	asset	The <code>Asset</code> object which was previously cached.
-         * @param	frameIndex	Index of the desired frame (zero-based).
-         * @return	The cached <code>Vector</code> of <code>Rectangle</code> objects representing the bounds for each frame.
+         * @param  asset  The <code>Asset</code> object which was previously cached.
+         * @param  frameIndex  Index of the desired frame (zero-based).
+         * @return The cached <code>Vector</code> of <code>Rectangle</code> objects representing the bounds for each frame.
          */
         public function getBounds(asset:Asset):Vector.<Rectangle> {
             return _bounds[asset];
@@ -238,8 +238,8 @@ package cc.display {
         
         /**
          * Retrieves the cached <code>Point</code> object representing the registration point of the supplied <code>Asset</code>.
-         * @param	asset	The <code>Asset</code> object which was previously cached.
-         * @return	The cached <code>Point</code> object.
+         * @param  asset  The <code>Asset</code> object which was previously cached.
+         * @return The cached <code>Point</code> object.
          */
         public function getRegistration(asset:Asset):Point {
             return _registrations[asset];

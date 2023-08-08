@@ -17,7 +17,7 @@ package cc.ui {
         public function TapHelper(
                                   dispatcher:DisplayObjectContainer,
                                   handler:ITapHandler,
-                                  tapTolerance:int = 300 // milliseconds
+                                  tapTolerance:int = 300  // milliseconds
                                   ) {
             
             _dispatcher = dispatcher;
