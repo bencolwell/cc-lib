@@ -9,7 +9,6 @@ package cc.display {
         function set viewportRect(rect:Rectangle);                 // sets the size of the viewport
         function set scrollableRect(rect:Rectangle);               // sets the total scrollable size
         function addBitmapLayers(layers:Vector.<BitmapData>);      // adds bitmap layers in the order specified
-        function addVectorLayer(layer:VectorLayer);                // adds a vector layer
         function updateBitmapLayer(index:int, bitmap:BitmapData);  // updates an existing bitmap layer at target index (must match the exact size)
         function scrollTo(coord:Point):void;                       // scroll to the coordinate specified
         
