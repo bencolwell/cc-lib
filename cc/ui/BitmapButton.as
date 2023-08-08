@@ -9,7 +9,7 @@ package cc.ui {
     public class BitmapButton extends Sprite implements IBitmapButton {
         
         protected var _button:Bitmap;
-        protected var _buttonStates:Vector.<BitmapData>;		// expects 4 button states in this order: up, over, down/selected, disabled
+        protected var _buttonStates:Vector.<BitmapData>;  // expects 4 button states in this order: up, over, down/selected, disabled
         protected var _cancelCallback:Function;
         protected var _callback:Function;
         protected var _isEnabled:Boolean;
@@ -19,7 +19,7 @@ package cc.ui {
         
         public function BitmapButton(
                                      buttonStates:Vector.<BitmapData>,
-                                     callback:Function,                 // expects a function with an argument of type BitmapButton
+                                     callback:Function,  // expects a function with an argument of type BitmapButton
                                      depressable:Boolean = false,
                                      cancelCallback:Function = null
                                      ) {
