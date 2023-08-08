@@ -47,9 +47,9 @@ package cc.display {
         public function addBitmapLayers(layers:Vector.<BitmapData>):void {
             
             var startIndex:int = _bitmapLayers.length;
-            for each(var bmp:BitmapData in layers) {
-                if (bmp.width >= _viewportRect.width && bmp.height >= _viewportRect.height) {
-                    _bitmapLayers.push(new Bitmap(bmp));
+            for each(var bitmap:BitmapData in layers) {
+                if (bitmap.width >= _viewportRect.width && bitmap.height >= _viewportRect.height) {
+                    _bitmapLayers.push(new Bitmap(bitmap));
                 }
             }
             for (var i:int = startIndex; i < _bitmapLayers.length; ++i) {
@@ -59,11 +59,11 @@ package cc.display {
             
         }
         
-        public function updateBitmapLayer(index:int, bmp:BitmapData):void {
+        public function updateBitmapLayer(index:int, bitmap:BitmapData):void {
             
             if (index < 0 || index > _bitmapLayers.length - 1) return;
-            if (bmp.width != _bitmapLayers[index].bitmapData.width || bmp.height != _bitmapLayers[index].bitmapData.height) return;
-            _bitmapLayers[index].bitmapData = bmp;
+            if (bitmap.width != _bitmapLayers[index].bitmapData.width || bitmap.height != _bitmapLayers[index].bitmapData.height) return;
+            _bitmapLayers[index].bitmapData = bitmap;
             
         }
         
