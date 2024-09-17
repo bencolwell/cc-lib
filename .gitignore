@@ -1,0 +1,8 @@
+# Build files
+CC-Lib.as3proj
+Main.fla
+Main.as
+
+# System and editor files
+.DS_Store
+.vscode/*
